@@ -36,6 +36,11 @@ jobs:
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Checkout Valkey
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Build
         run: make SERVER_CFLAGS=-Werror USE_LIBBACKTRACE=yes
       - name: Start valkey-server
@@ -69,6 +74,11 @@ jobs:
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Checkout Valkey
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Build
         run: make SERVER_CFLAGS=-Werror USE_LIBBACKTRACE=yes
       - name: Start valkey-server
@@ -106,6 +116,11 @@ jobs:
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Checkout Valkey
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Build
         run: make SERVER_CFLAGS=-Werror USE_LIBBACKTRACE=yes
       - name: Start valkey-server

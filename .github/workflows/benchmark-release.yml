@@ -88,6 +88,11 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Set up Python
         uses: kishaningithub/setup-python-amazon-linux@a326cdc792983fe0fbd04c81d3d62b59b6123a6c # v1.1.0
         with:
@@ -236,6 +241,11 @@ jobs:
     needs: benchmark
     runs-on: ubuntu-latest
     steps:
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Download all artifacts
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:

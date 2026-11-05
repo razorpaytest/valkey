@@ -21,6 +21,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: "Run analysis"
         uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a #v2.4.3
         with:

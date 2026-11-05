@@ -117,6 +117,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
@@ -205,6 +210,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
@@ -257,6 +267,11 @@ jobs:
         with:
           repository: ${{ ((github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call') && (inputs.use_repo || github.event.inputs.use_repo)) || github.repository }}
           ref: ${{ ((github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call') && (inputs.use_git_ref || github.event.inputs.use_git_ref)) || github.ref }}
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Build and test on s390x (big endian)
         uses: uraimo/run-on-arch-action@d94c13912ea685de38fccc1109385b83fd79427d # v3.0.1
         with:
@@ -309,6 +324,12 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
+        expose-to-job-network: true
       - name: Build libbacktrace
         run: |
           apt-get update && apt-get install -y make gcc-13 git cmake g++ python3
@@ -375,6 +396,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make MALLOC=libc SERVER_CFLAGS='-Werror' USE_LIBBACKTRACE=yes
@@ -427,6 +453,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make MALLOC=libc CFLAGS=-DNO_MALLOC_USABLE_SIZE SERVER_CFLAGS='-Werror' USE_LIBBACKTRACE=yes
@@ -479,6 +510,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Build libbacktrace
         run: |
           sudo apt-get update && sudo apt-get install libc6-dev-i386 g++-multilib
@@ -564,6 +600,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install Zstandard
         run: sudo apt-get update && sudo apt-get install -y libzstd-dev
@@ -623,6 +664,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make BUILD_TLS=yes SERVER_CFLAGS='-Werror' USE_LIBBACKTRACE=yes
@@ -680,6 +726,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make SERVER_CFLAGS='-Werror' USE_LIBBACKTRACE=yes
@@ -726,6 +777,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install Zstandard
         run: sudo apt-get update && sudo apt-get install -y libzstd-dev
@@ -777,6 +833,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make SERVER_CFLAGS='-Werror' USE_LIBBACKTRACE=yes
@@ -866,6 +927,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install Zstandard
         run: sudo apt-get update && sudo apt-get install -y libzstd-dev
@@ -921,6 +987,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install build dependencies
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev libzstd-dev
@@ -981,6 +1052,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make valgrind CFLAGS="-DNO_MALLOC_USABLE_SIZE" SERVER_CFLAGS='-Werror' USE_LIBBACKTRACE=yes
@@ -1034,6 +1110,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
@@ -1100,6 +1181,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
@@ -1170,6 +1256,11 @@ jobs:
         with:
           repository: ${{ inputs.use_repo || github.event.inputs.use_repo || github.repository }}
           ref: ${{ inputs.use_git_ref || github.event.inputs.use_git_ref || github.ref }}
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
       - name: make
@@ -1255,6 +1346,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
@@ -1325,6 +1421,11 @@ jobs:
         with:
           repository: ${{ inputs.use_repo || github.event.inputs.use_repo || github.repository }}
           ref: ${{ inputs.use_git_ref || github.event.inputs.use_git_ref || github.ref }}
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
       - name: make
@@ -1406,6 +1507,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: Install gtest
         run: sudo apt-get install pkg-config libgtest-dev libgmock-dev
@@ -1470,6 +1576,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Build libbacktrace
         run: |
           sudo apt-get update && sudo apt-get install lttng-tools lttng-modules-dkms liblttng-ust-dev
@@ -1547,6 +1658,12 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
+        expose-to-job-network: true
       - name: Build libbacktrace
         run: |
           dnf -y install gcc make procps-ng which /usr/bin/kill /usr/bin/awk
@@ -1624,6 +1741,12 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
+        expose-to-job-network: true
       - name: Build libbacktrace
         run: |
           dnf -y install make gcc openssl-devel openssl procps-ng which /usr/bin/kill /usr/bin/awk
@@ -1701,6 +1824,12 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
+        expose-to-job-network: true
       - name: Build libbacktrace
         run: |
           dnf -y install make gcc openssl-devel openssl procps-ng which /usr/bin/kill /usr/bin/awk
@@ -1921,6 +2050,11 @@ jobs:
         with:
           repository: ${{ inputs.use_repo || github.event.inputs.use_repo || github.repository }}
           ref: ${{ inputs.use_git_ref || github.event.inputs.use_git_ref || github.ref }}
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: test
         uses: cross-platform-actions/action@39a2a80642eca0947594ad03e4355dc3d28c617a # v0.32.0
         with:
@@ -1970,6 +2104,12 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+          api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+          tenant-id: ${{ secrets.PMG_TENANT_ID }}
+          expose-to-job-network: true
       - name: Build libbacktrace
         run: |
           apk add build-base git zstd-dev zstd-static
@@ -2025,6 +2165,12 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+          api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+          tenant-id: ${{ secrets.PMG_TENANT_ID }}
+          expose-to-job-network: true
       - name: Build libbacktrace
         run: |
           apk add build-base git
@@ -2074,6 +2220,11 @@ jobs:
         with:
           repository: ${{ inputs.use_repo || github.event.inputs.use_repo || github.repository }}
           ref: ${{ inputs.use_git_ref || github.event.inputs.use_git_ref || github.ref }}
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Run 32-bit Alpine tests
         env:
           RUN_ACCURATE: ${{ github.event_name != 'pull_request' && '--accurate' || '' }}
@@ -2161,6 +2312,11 @@ jobs:
           repository: ianlancetaylor/libbacktrace
           ref: b9e40069c0b47a722286b94eb5231f7f05c08713
           path: libbacktrace
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - run: cd libbacktrace && ./configure && make && sudo make install
       - name: make
         run: make SERVER_CFLAGS='-Werror -DLOG_REQ_RES' USE_LIBBACKTRACE=yes
@@ -2227,6 +2383,11 @@ jobs:
       - test-alpine-32bit
       - reply-schemas-validator
     steps:
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Download all failures
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
@@ -2414,6 +2575,11 @@ jobs:
       - reply-schemas-validator
       - consolidate-test-failures
     steps:
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Collect job status
         run: |
           FAILED_JOBS=()

@@ -18,6 +18,11 @@ jobs:
       branches: ${{ steps.release-branches.outputs.branches }}
       has-branches: ${{ steps.release-branches.outputs.has-branches }}
     steps:
+      - name: Setup PMG
+        uses: safedep/pmg@v0.34.0
+        with:
+        api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+        tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Collect release branches
         id: release-branches
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
