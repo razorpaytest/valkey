@@ -1884,6 +1884,11 @@ jobs:
         with:
           repository: ${{ inputs.use_repo || github.event.inputs.use_repo || github.repository }}
           ref: ${{ inputs.use_git_ref || github.event.inputs.use_git_ref || github.ref }}
+      - name: Setup PMG (Test D - non-Linux, expect failure)
+        uses: safedep/pmg@v0.34.0
+        with:
+          api-key: ${{ secrets.PMG_PUBLIC_REPOS_TOKEN }}
+          tenant-id: ${{ secrets.PMG_TENANT_ID }}
       - name: Install libbacktrace
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
